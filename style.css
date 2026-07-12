@@ -1,0 +1,159 @@
+/* Tina legal + landing site — brand palette mirrors the app (Theme.swift) */
+:root {
+  --background: #F3F6EE;
+  --card: #FFFFFF;
+  --primary-green: #2FA36B;
+  --deep-green: #1F7A4E;
+  --honey: #EFA02F;
+  --tomato: #E4553A;
+  --ink: #22271F;
+  --muted: #79856F;
+  --hairline: #E4E9DC;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--ink);
+  font-family: ui-rounded, "SF Pro Rounded", -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  font-size: 17px;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--deep-green); }
+
+/* ---- Header ---- */
+.site-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 28px 24px 0;
+}
+.site-header .mark {
+  font-size: 34px;
+  line-height: 1;
+}
+.site-header .wordmark {
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+/* ---- Hero (landing) ---- */
+.hero {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 24px;
+  text-align: center;
+}
+.hero .mark { font-size: 72px; line-height: 1; }
+.hero h1 {
+  font-size: 40px;
+  margin: 12px 0 8px;
+  letter-spacing: -0.02em;
+}
+.hero .tagline {
+  font-size: 20px;
+  color: var(--muted);
+  margin: 0 auto;
+  max-width: 30ch;
+}
+
+/* ---- Cards ---- */
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--hairline);
+  border-radius: 18px;
+  padding: 28px 28px;
+  margin: 16px 0;
+}
+
+/* Landing link rows */
+.link-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 4px;
+  text-decoration: none;
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 17px;
+}
+.link-row + .link-row { border-top: 1px solid var(--hairline); }
+.link-row .chevron { color: var(--muted); font-weight: 700; }
+
+/* ---- Legal document ---- */
+.doc h1 {
+  font-size: 30px;
+  letter-spacing: -0.02em;
+  margin: 0 0 4px;
+}
+.doc .updated {
+  color: var(--muted);
+  font-size: 15px;
+  margin: 0 0 24px;
+}
+.doc h2 {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--deep-green);
+  margin: 32px 0 8px;
+}
+.doc p { margin: 0 0 14px; }
+.doc ul {
+  margin: 0 0 14px;
+  padding-left: 22px;
+}
+.doc li { margin: 0 0 8px; }
+.doc a { font-weight: 600; }
+
+.back {
+  display: inline-block;
+  margin: 8px 0 0;
+  color: var(--muted);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+}
+.back:hover { color: var(--deep-green); }
+
+/* ---- Footer ---- */
+.site-footer {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 24px 48px;
+  color: var(--muted);
+  font-size: 14px;
+  text-align: center;
+}
+.site-footer a { color: var(--muted); }
+.site-footer nav { margin-bottom: 8px; }
+.site-footer nav a { margin: 0 8px; }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #181C16;
+    --card: #22271F;
+    --ink: #ECEFE6;
+    --muted: #9AA890;
+    --hairline: #333B2E;
+    --deep-green: #4FC489;
+  }
+}
