@@ -1,8 +1,2 @@
-# Every invite code serves the same page, with status 200. A 404 here would
-# stop iMessage and WhatsApp from rendering a link preview, which is the whole
-# point of moving invites off the tina:// scheme.
-/join/*  /join/index.html  200
-
-# Fallback only. The static file wins when it uploaded correctly; this catches
-# the case where the dot-directory was skipped by the deploy tool.
-/.well-known/apple-app-site-association  /aasa.json  200
+/join/* /join/ 200
+/.well-known/apple-app-site-association /aasa.json 200
