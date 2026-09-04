@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["PULMA9D7ZG.federicocipriani.Pantrio"],
+        "components": [
+          {
+            "/": "/join/*",
+            "comment": "Household invite links open the app straight into the join flow."
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": ["PULMA9D7ZG.federicocipriani.Pantrio"]
+  }
+}

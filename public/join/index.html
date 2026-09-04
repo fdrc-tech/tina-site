@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join a household on Tina</title>
+  <meta name="description" content="You have been invited to share a home inventory in Tina. Install the app and enter your invite code.">
+  <meta property="og:title" content="Join a household on Tina">
+  <meta property="og:description" content="You have been invited to share a home inventory in Tina.">
+  <meta property="og:type" content="website">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <span class="mark" role="img" aria-label="Tina raccoon">🦝</span>
+    <a class="wordmark" href="/">Tina</a>
+  </header>
+
+  <main class="container join" id="join">
+    <!-- Rendered at once by the script below. The no-JS copy underneath is the
+         resting state: a reader with scripting off still sees what this is. -->
+    <noscript>
+      <div class="card">
+        <h1>Join a household on Tina</h1>
+        <p>Your invite code is the last part of this page's address, after <code>/join/</code>. Install Tina from the App Store, create an account, then enter that code under “Join with a code”.</p>
+        <p><a class="store-link" href="https://apps.apple.com/app/id6791325740">Get Tina on the App Store</a></p>
+      </div>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <nav>
+      <a href="/privacy.html">Privacy</a> ·
+      <a href="/terms.html">Terms</a> ·
+      <a href="mailto:support@tinapantry.app">Support</a>
+    </nav>
+    <div>© 2026 Tina</div>
+  </footer>
+
+<script>
+(function () {
+  "use strict";
+
+  // Same alphabet and length as generate_invite() in the database: 32 symbols
+  // with 0/O/1/I left out, eight characters long.
+  var CODE_RE = /^[ABCDEFGHJKLMNPQRSTUVWXYZ23456789]{8}$/;
+  var APP_STORE = "https://apps.apple.com/app/id6791325740";
+
+  var COPY = {
+    en: {
+      lang: "en",
+      title: "You have been invited to a household",
+      lead: "Someone wants to share what they keep at home with you, in Tina.",
+      codeLabel: "Invite code",
+      copy: "Copy code", copied: "Copied",
+      open: "Open in Tina", have: "Already have Tina?",
+      stepsTitle: "New to Tina?",
+      steps: [
+        "Install Tina from the App Store.",
+        "Create an account, or sign in.",
+        "Enter the code above under “Join with a code”."
+      ],
+      store: "Get Tina on the App Store",
+      badTitle: "This link is incomplete",
+      badLead: "It does not carry a valid eight-character invite code. Ask whoever invited you to send the link again.",
+      expires: "Invite codes stop working seven days after they are created."
+    },
+    it: {
+      lang: "it",
+      title: "Ti hanno invitato in una casa",
+      lead: "Qualcuno vuole condividere con te quello che tiene in casa, su Tina.",
+      codeLabel: "Codice d’invito",
+      copy: "Copia il codice", copied: "Copiato",
+      open: "Apri in Tina", have: "Hai già Tina?",
+      stepsTitle: "Non hai ancora Tina?",
+      steps: [
+        "Installa Tina dall’App Store.",
+        "Crea un account o accedi.",
+        "Inserisci il codice qui sopra in “Entra con un codice”."
+      ],
+      store: "Scarica Tina dall’App Store",
+      badTitle: "Questo link è incompleto",
+      badLead: "Non contiene un codice d’invito valido di otto caratteri. Chiedi a chi ti ha invitato di rimandarti il link.",
+      expires: "I codici d’invito smettono di funzionare sette giorni dopo essere stati creati."
+    },
+    de: {
+      lang: "de",
+      title: "Du wurdest zu einem Haushalt eingeladen",
+      lead: "Jemand möchte mit dir teilen, was er zu Hause hat – in Tina.",
+      codeLabel: "Einladungscode",
+      copy: "Code kopieren", copied: "Kopiert",
+      open: "In Tina öffnen", have: "Du hast Tina schon?",
+      stepsTitle: "Neu bei Tina?",
+      steps: [
+        "Installiere Tina aus dem App Store.",
+        "Erstelle ein Konto oder melde dich an.",
+        "Gib den Code oben unter „Mit Code beitreten“ ein."
+      ],
+      store: "Tina im App Store laden",
+      badTitle: "Dieser Link ist unvollständig",
+      badLead: "Er enthält keinen gültigen achtstelligen Einladungscode. Bitte die Person, die dich eingeladen hat, den Link noch einmal zu schicken.",
+      expires: "Einladungscodes laufen sieben Tage nach ihrer Erstellung ab."
+    },
+    es: {
+      lang: "es",
+      title: "Te han invitado a un hogar",
+      lead: "Alguien quiere compartir contigo lo que tiene en casa, en Tina.",
+      codeLabel: "Código de invitación",
+      copy: "Copiar código", copied: "Copiado",
+      open: "Abrir en Tina", have: "¿Ya tienes Tina?",
+      stepsTitle: "¿Aún no tienes Tina?",
+      steps: [
+        "Instala Tina desde la App Store.",
+        "Crea una cuenta o inicia sesión.",
+        "Introduce el código de arriba en «Unirse con un código»."
+      ],
+      store: "Consigue Tina en la App Store",
+      badTitle: "Este enlace está incompleto",
+      badLead: "No contiene un código de invitación válido de ocho caracteres. Pide a quien te invitó que te envíe el enlace otra vez.",
+      expires: "Los códigos de invitación dejan de funcionar siete días después de crearse."
+    },
+    fr: {
+      lang: "fr",
+      title: "Tu as été invité dans un foyer",
+      lead: "Quelqu’un veut partager avec toi ce qu’il garde à la maison, dans Tina.",
+      codeLabel: "Code d’invitation",
+      copy: "Copier le code", copied: "Copié",
+      open: "Ouvrir dans Tina", have: "Tu as déjà Tina ?",
+      stepsTitle: "Tu ne connais pas encore Tina ?",
+      steps: [
+        "Installe Tina depuis l’App Store.",
+        "Crée un compte ou connecte-toi.",
+        "Saisis le code ci-dessus dans « Rejoindre avec un code »."
+      ],
+      store: "Télécharger Tina sur l’App Store",
+      badTitle: "Ce lien est incomplet",
+      badLead: "Il ne contient pas de code d’invitation valide de huit caractères. Demande à la personne qui t’a invité de renvoyer le lien.",
+      expires: "Les codes d’invitation cessent de fonctionner sept jours après leur création."
+    }
+  };
+
+  function pickCopy() {
+    var tags = (navigator.languages && navigator.languages.length)
+      ? navigator.languages : [navigator.language || "en"];
+    for (var i = 0; i < tags.length; i++) {
+      var base = String(tags[i]).toLowerCase().split("-")[0];
+      if (COPY[base]) return COPY[base];
+    }
+    return COPY.en;
+  }
+
+  function readCode() {
+    // /join/ABCD1234 is the real shape. ?code= is accepted so a hand-edited
+    // or forwarded link still works.
+    var fromPath = location.pathname.replace(/^\/join\/?/, "").replace(/\/+$/, "");
+    var fromQuery = new URLSearchParams(location.search).get("code") || "";
+    var raw = (fromPath || fromQuery || "").trim().toUpperCase();
+    return CODE_RE.test(raw) ? raw : null;
+  }
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  var t = pickCopy();
+  var code = readCode();
+  var root = document.getElementById("join");
+  document.documentElement.lang = t.lang;
+  document.title = (code ? t.title : t.badTitle) + " — Tina";
+
+  var card = el("div", "card");
+
+  if (!code) {
+    card.appendChild(el("h1", null, t.badTitle));
+    card.appendChild(el("p", null, t.badLead));
+    var badLink = el("a", "store-link", t.store);
+    badLink.href = APP_STORE;
+    card.appendChild(badLink);
+    root.appendChild(card);
+    return;
+  }
+
+  card.appendChild(el("h1", null, t.title));
+  card.appendChild(el("p", "join-lead", t.lead));
+
+  card.appendChild(el("p", "code-label", t.codeLabel));
+  var codeBox = el("div", "code-box");
+  codeBox.appendChild(el("span", "code", code));
+  card.appendChild(codeBox);
+
+  var copyBtn = el("button", "copy-btn", t.copy);
+  copyBtn.type = "button";
+  copyBtn.addEventListener("click", function () {
+    var done = function () { copyBtn.textContent = t.copied; copyBtn.classList.add("is-copied"); };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(code).then(done, function () {});
+    } else {
+      var ta = document.createElement("textarea");
+      ta.value = code; document.body.appendChild(ta); ta.select();
+      try { document.execCommand("copy"); done(); } catch (e) {}
+      document.body.removeChild(ta);
+    }
+  });
+  card.appendChild(copyBtn);
+  root.appendChild(card);
+
+  // Second card: the two paths out of here. "Open in Tina" uses the custom
+  // scheme on purpose — a visitor who is already on this page in Safari got
+  // here without the app intercepting the link, so the https form would only
+  // reload this page.
+  var actions = el("div", "card");
+  actions.appendChild(el("p", "have-app", t.have));
+  var openLink = el("a", "primary-btn", t.open);
+  openLink.href = "tina://join?code=" + encodeURIComponent(code);
+  actions.appendChild(openLink);
+
+  actions.appendChild(el("h2", "steps-title", t.stepsTitle));
+  var ol = el("ol", "steps");
+  t.steps.forEach(function (s) { ol.appendChild(el("li", null, s)); });
+  actions.appendChild(ol);
+
+  var storeLink = el("a", "store-link", t.store);
+  storeLink.href = APP_STORE;
+  actions.appendChild(storeLink);
+
+  actions.appendChild(el("p", "expires-note", t.expires));
+  root.appendChild(actions);
+})();
+</script>
+</body>
+</html>
