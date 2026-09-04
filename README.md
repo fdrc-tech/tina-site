@@ -36,6 +36,19 @@ The English copy *is* the catalog key. If the English changes in Swift, the key
 renames and this script stops with a clear error rather than publishing stale
 text — update `TOPICS` in the script to match, then rerun.
 
+## Two things that are deliberately not done yet
+
+**The support address is still `fdrc.tech@gmail.com`.** `support@tinapantry.app`
+goes in only once Cloudflare Email Routing is verified and actually delivering
+(R6.4). Publishing an address that bounces is worse than publishing the Gmail one.
+
+**The repo-root pages are still the full old site, not redirects.** Versions 1.0
+to 1.3.1 have `fdrc-tech.github.io/tina-site` compiled into `LegalView`, and the
+App Store listing still points there while 1.3.1 is in review. They become
+redirects to this domain in the same change that repoints the listing URLs, with
+the 1.4 release. Until then, `privacy.html` at the root and
+`public/privacy.html` must be edited together.
+
 ## Legal text
 
 `public/privacy.html` and `public/terms.html` are the canonical copies. The app
