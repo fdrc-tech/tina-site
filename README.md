@@ -36,14 +36,14 @@ The English copy *is* the catalog key. If the English changes in Swift, the key
 renames and this script stops with a clear error rather than publishing stale
 text — update `TOPICS` in the script to match, then rerun.
 
-## One thing that is deliberately not done yet
+## The old GitHub Pages URLs
 
-**The repo-root pages are still the full old site, not redirects.** Versions 1.0
-to 1.3.1 have `fdrc-tech.github.io/tina-site` compiled into `LegalView`, and the
-App Store listing still points there while 1.3.1 is in review. They become
-redirects to this domain in the same change that repoints the listing URLs, with
-the 1.4 release. Until then, `privacy.html` at the root and
-`public/privacy.html` must be edited together.
+The repo-root `index.html`, `privacy.html` and `terms.html` are redirect stubs,
+not content. Versions 1.0 to 1.3.1 of the app have
+`fdrc-tech.github.io/tina-site` compiled into `LegalView`, so those URLs have to
+keep working indefinitely. GitHub Pages cannot issue a real 301 for a project
+site, so they use a meta refresh plus a canonical link and a visible link out.
+**Never delete them.**
 
 ## Two traps when verifying a deploy
 
