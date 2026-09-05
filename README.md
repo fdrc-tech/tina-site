@@ -45,6 +45,25 @@ redirects to this domain in the same change that repoints the listing URLs, with
 the 1.4 release. Until then, `privacy.html` at the root and
 `public/privacy.html` must be edited together.
 
+## Two traps when verifying a deploy
+
+**Grepping the live site for the support address finds nothing.** Cloudflare's
+Email Address Obfuscation (Scrape Shield, on by default) rewrites every `mailto:`
+into `/cdn-cgi/l/email-protection#<hex>` and injects a decoder script. Real
+visitors see the address; `curl | grep` does not. To check it, decode the hex:
+the first byte is an XOR key applied to all the bytes after it. This looks
+exactly like a deploy that did not land.
+
+**`gh run list --limit 1` straight after a push can return the PREVIOUS run.**
+GitHub has not created the new one yet, so watching that id reports success
+instantly for work that never ran. Always select by commit:
+
+```sh
+SHA=$(git rev-parse HEAD)
+gh run list --workflow deploy.yml --limit 10 --json databaseId,headSha \
+  -q ".[] | select(.headSha==\"$SHA\") | .databaseId" | head -1
+```
+
 ## Legal text
 
 `public/privacy.html` and `public/terms.html` are the canonical copies. The app
