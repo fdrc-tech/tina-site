@@ -179,7 +179,7 @@ def render(strings: dict, lang: str) -> str:
     <nav>
       <a href="{depth_prefix}privacy.html">Privacy</a> ·
       <a href="{depth_prefix}terms.html">Terms</a> ·
-      <a href="mailto:fdrc.tech@gmail.com">Support</a>
+      <a href="mailto:support@tinapantry.app">Support</a>
     </nav>
     <div>© 2026 Tina</div>
   </footer>
