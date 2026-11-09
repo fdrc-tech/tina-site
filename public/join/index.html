@@ -169,7 +169,7 @@
   var code = readCode();
   var root = document.getElementById("join");
   document.documentElement.lang = t.lang;
-  document.title = (code ? t.title : t.badTitle) + " — Tina";
+  document.title = (code ? t.title : t.badTitle) + " · Tina";
 
   var card = el("div", "card");
 
@@ -208,7 +208,7 @@
   root.appendChild(card);
 
   // Second card: the two paths out of here. "Open in Tina" uses the custom
-  // scheme on purpose — a visitor who is already on this page in Safari got
+  // scheme on purpose: a visitor who is already on this page in Safari got
   // here without the app intercepting the link, so the https form would only
   // reload this page.
   var actions = el("div", "card");

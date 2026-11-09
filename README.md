@@ -1,4 +1,4 @@
-# Tina — public site
+# Tina: public site
 
 The website for the **Tina** iOS app: landing page, legal documents, usage
 guide, and the invite-link landing page.
@@ -9,10 +9,10 @@ Live at **https://tinapantry.app**
 
 | Path | What it is |
 |---|---|
-| `public/` | the deployed site — everything under here is served at the domain root |
+| `public/` | the deployed site; everything under here is served at the domain root |
 | `public/.well-known/apple-app-site-association` | universal-links association for `applinks:/join/*` and `webcredentials` |
 | `public/join/index.html` | one page for every invite code, served for `/join/<CODE>` |
-| `public/guide/` | usage guide in en/it/de/es/fr — **generated, do not edit by hand** |
+| `public/guide/` | usage guide in en/it/de/es/fr (**generated, do not edit by hand**) |
 | `public/_headers` / `public/_redirects` | Cloudflare Pages rules |
 | `tools/build_guide.py` | regenerates the guide from the app's string catalog |
 | `index.html`, `privacy.html`, `terms.html`, `style.css` at the repo root | the old GitHub Pages site at `fdrc-tech.github.io/tina-site`, kept alive as redirects because versions 1.0 to 1.3.1 of the app have that URL compiled in |
@@ -34,7 +34,7 @@ tools/build_guide.py ../Tina/Pantrio/Resources/Localizable.xcstrings
 
 The English copy *is* the catalog key. If the English changes in Swift, the key
 renames and this script stops with a clear error rather than publishing stale
-text — update `TOPICS` in the script to match, then rerun.
+text. Update `TOPICS` in the script to match, then rerun.
 
 ## The old GitHub Pages URLs
 

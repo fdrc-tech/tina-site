@@ -55,12 +55,12 @@ TOPICS = [
     (
         "shopping",
         "Everything you need to buy",
-        "The Shopping tab holds your shopping list. Pressing the button on the right takes a product off the list; once you are home, you add it back to your spaces however you like. The same product measured differently — 1 L of milk and 2 bottles of milk — stays two separate products, because they are two different things to buy.",
+        "The Shopping tab holds your shopping list. Pressing the button on the right takes a product off the list; once you are home, you add it back to your spaces however you like. The same product measured differently (1 L of milk and 2 bottles of milk) stays two separate products, because they are two different things to buy.",
     ),
     (
         "scanning",
         "Scan instead of typing",
-        "Tap the barcode button to scan a product. If you already stock it, Tina asks how many you bought and adds them. If you don't, it fills the name in for you to confirm — and remembers what your household calls that code.",
+        "Tap the barcode button to scan a product. If you already stock it, Tina asks how many you bought and adds them. If you don't, it fills the name in for you to confirm, and remembers what your household calls that code.",
     ),
     (
         "sharing",
@@ -154,7 +154,7 @@ def render(strings: dict, lang: str) -> str:
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{html.escape(title)} — Tina</title>
+  <title>{html.escape(title)} · Tina</title>
   <meta name="description" content="{html.escape(chrome['intro'])}">
   {alternates(lang)}
   <link rel="stylesheet" href="{depth_prefix}style.css">
